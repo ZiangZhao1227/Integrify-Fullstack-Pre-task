@@ -18,15 +18,15 @@ const App = () => {
       });
   };
 
-  console.log(users[0]);
   return (
     <div className="App">
-      <h3>React Crud Using Jsonplaceholder</h3>
+      <h3 className="assignment-title">
+        React <span>Pre Assignment</span>
+      </h3>
       <div className="row">
         {users.map((user) => (
-          <div className="col-md-4">
+          <div key={user.id} className="col-md-4">
             <User
-              key={user.id}
               name={user.name}
               username={user.username}
               website={user.website}
