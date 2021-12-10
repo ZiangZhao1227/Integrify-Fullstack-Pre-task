@@ -8,7 +8,7 @@ const User = ({ name, username, website }) => {
         <img src={testImg} alt="Test Icon" className="img"></img>
       </div>
       <div className="card-body text-dark">
-        <h2 className="card-title">{name}</h2>
+        <h4 className="card-title">{name}</h4>
         <a href="/#" className="card-link">http://{website}</a>
         <p className="card-text text-secondary">@{username}</p>
         <a href="/#" className="btn btn-primary">
