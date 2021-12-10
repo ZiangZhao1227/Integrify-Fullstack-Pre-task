@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import User from "./components/User";
+import "./components/card-style.css";
 
-function App() {
+const App = () => {
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    await fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => res.json())
+      .then((data) => setUsers(data))
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  console.log(users[0]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>React Crud Using Jsonplaceholder</h3>
+      <div className="row">
+        {users.map((user) => (
+          <div className="col-md-4">
+            <User
+              key={user.id}
+              name={user.name}
+              username={user.username}
+              website={user.website}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
