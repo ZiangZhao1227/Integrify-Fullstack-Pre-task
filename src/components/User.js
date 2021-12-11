@@ -5,7 +5,7 @@ const User = ({ name, username, website }) => {
   return (
     <div className="card text-center">
       <div className="overflow">
-        <Avatar className="avatar" sx={{ height: "70px", width: "70px" }}>
+        <Avatar className="avatar" sx={{ height: "100px", width: "100px" }}>
           {name.charAt(0)}
         </Avatar>
       </div>
