@@ -1,15 +1,19 @@
 import React from "react";
 import "../components/card-style.css";
-import testImg from "../assets/test-account.png";
+import { Avatar } from "@mui/material";
 const User = ({ name, username, website }) => {
   return (
     <div className="card text-center">
       <div className="overflow">
-        <img src={testImg} alt="Test Icon" className="img"></img>
+        <Avatar className="avatar" sx={{ height: "70px", width: "70px" }}>
+          {name.charAt(0)}
+        </Avatar>
       </div>
       <div className="card-body text-dark">
         <h4 className="card-title">{name}</h4>
-        <a href="/#" className="card-link">http://{website}</a>
+        <a href="/#" className="card-link">
+          http://{website}
+        </a>
         <p className="card-text text-secondary">@{username}</p>
         <a href="/#" className="btn btn-primary">
           More Details
