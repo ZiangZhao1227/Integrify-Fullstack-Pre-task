@@ -14,8 +14,8 @@ const User = () => {
     };
   }, []);
 
-  const fetchData = async () => {
-    await fetch(apiUrl)
+  const fetchData = () => {
+    fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => setUsers(data))
       .catch((err) => {

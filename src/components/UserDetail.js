@@ -7,8 +7,8 @@ const UserDetail = () => {
   const { id } = useParams();
   const [userDetails, setUserDetails] = useState({ address: {}, company: {} });
   useEffect(() => {
-    const fetchData = async () => {
-      await fetch(apiUrl + `/${id}`)
+    const fetchData = () => {
+       fetch(apiUrl + `/${id}`)
         .then((res) => res.json())
         .then((data) => setUserDetails(data))
         .catch((err) => {
