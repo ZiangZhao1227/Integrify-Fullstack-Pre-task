@@ -7,13 +7,14 @@ const UserDetail = () => {
   const { id } = useParams();
   const [userDetails, setUserDetails] = useState({ address: {}, company: {} });
   useEffect(() => {
-    const fetchData = () => {
-       fetch(apiUrl + `/${id}`)
-        .then((res) => res.json())
-        .then((data) => setUserDetails(data))
-        .catch((err) => {
-          console.log(err);
-        });
+    const fetchData = async () => {
+      try {
+        const res = await fetch(apiUrl + `/${id}`);
+        const data = await res.json();
+        setUserDetails(data);
+      } catch (error) {
+        console.log(error);
+      }
     };
     fetchData();
   }, [id]);

@@ -14,14 +14,16 @@ const User = () => {
     };
   }, []);
 
-  const fetchData = () => {
-    fetch(apiUrl)
-      .then((res) => res.json())
-      .then((data) => setUsers(data))
-      .catch((err) => {
-        console.log(err);
-      });
+  const fetchData = async () => {
+    try {
+      const res = await fetch(apiUrl);
+      const data = await res.json();
+      setUsers(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return (
     <div className="row">
       {users.map((user) => (
