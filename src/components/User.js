@@ -17,10 +17,13 @@ const User = () => {
   const fetchData = async () => {
     try {
       const res = await fetch(apiUrl);
+      if (res.status !== 200) {
+        throw new Error("cannot fetch the data");
+      }
       const data = await res.json();
       setUsers(data);
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   };
 

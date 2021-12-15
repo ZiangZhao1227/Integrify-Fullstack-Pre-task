@@ -10,6 +10,9 @@ const UserDetail = () => {
     const fetchData = async () => {
       try {
         const res = await fetch(apiUrl + `/${id}`);
+        if (res.status !== 200) {
+          throw new Error("cannot fetch the data");
+        }
         const data = await res.json();
         setUserDetails(data);
       } catch (error) {
